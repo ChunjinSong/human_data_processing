@@ -1,0 +1,21 @@
+dataset:
+  path: ../raw_data/mvhuman
+  path_out: ../data/mvhuman
+  subject: '200173'
+  gender: 'neutral'
+  image_scale_factor: 0.5
+
+training:
+  view: ['22327091']
+  start_frame: 0
+  end_frame: -1
+  skip: 1
+  name: training
+
+novel_view:
+  view: ['22327084', '22327102', '22236229']
+  start_frame: 0
+  end_frame: -1
+  skip: 5
+  name: novel_view
+

@@ -1,0 +1,29 @@
+dataset:
+  path: path_to_mocap_zju_dataset
+  subject: '315'
+  gender: 'neutral'
+
+training:
+  view: [0]
+  start_frame: 0
+  end_frame: 1600
+  skip: 1
+  name: training
+
+novel_view:
+  view: []
+  start_frame: 0
+  end_frame: 1600
+  skip: 30
+  name: novel_view
+
+novel_pose:
+  view: []
+  start_frame: 1600
+  end_frame: 2000
+  skip: 30
+  name: novel_pose
+
+output:
+  dir: ../data/mocap
+  name: '315'

@@ -1,0 +1,35 @@
+dataset:
+  path: path_to_actorhq_dataset
+  subject: 'actor0601'
+  gender: 'neutral'
+
+training:
+  view: [126]
+  start_frame: 0
+  end_frame: 1500
+  skip: 4
+  name: training
+
+novel_view:
+  view: [127]
+  start_frame: 800
+  end_frame: 1500
+  skip: 4
+  name: novel_view
+
+novel_pose:
+  view: [127]
+  start_frame: 1500
+  end_frame: 2000
+  skip: 4
+  name: novel_pose
+
+test:
+  view: [127]
+  start_frame: 800
+  end_frame: 2000
+  skip: 4
+  name: test
+
+output:
+  dir: ../data/actorhq
