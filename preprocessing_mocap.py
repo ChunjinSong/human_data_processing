@@ -56,7 +56,7 @@ def process_data(cfg, type):
     end_frame = cfg_data['end_frame']
     skip = cfg_data['skip']
 
-    subject_dir = os.path.join(dataset_dir, f"{subject}")
+    subject_dir = os.path.join(dataset_dir, f"CoreView_{subject}")
     smpl_params_dir = os.path.join(subject_dir, "new_params")
     anno_path = os.path.join(subject_dir, 'annots.npy')
     annots = np.load(anno_path, allow_pickle=True).item()
