@@ -114,8 +114,8 @@ class Data_Process():
         image_size = self.cameras['img_size']
 
         source_img_dir = os.path.join(self.source_dir, 'images_lr')
-        source_msk_dir = os.path.join(self.source_dir, 'masks_som')
-        # source_msk_dir = os.path.join(self.source_dir, 'fmask_lr')
+        # source_msk_dir = os.path.join(self.source_dir, 'masks_som')
+        source_msk_dir = os.path.join(self.source_dir, 'fmask_lr')
 
         target_dir = self.target_dir + '_' + data_type
 
