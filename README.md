@@ -13,6 +13,7 @@ Data Preprocessing for ICLR 2025 paper [*LS_Avatar: Locality Sensitive Avatars F
 cd the/path/to/this/project
 cd ../
 mkdir model/smpl_model_data/
+cd the/path/to/this/project
 mv /path/to/smpl/models/basicModel_f_lbs_10_207_0_v1.0.0.pkl ../model/smpl_model_data/SMPL_FEMALE.pkl
 mv /path/to/smpl/models/basicmodel_m_lbs_10_207_0_v1.0.0.pkl ../model/smpl_model_data/SMPL_MALE.pkl
 mv /path/to/smpl/models/basicmodel_neutral_lbs_10_207_0_v1.0.0.pkl ../model/smpl_model_data/SMPL_NEUTRAL.pkl
