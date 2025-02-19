@@ -4,6 +4,7 @@ import pytorch3d.transforms
 from utils import *
 from mvhuman.tools.camera_utils import read_camera_mvhumannet
 from normalize_cameras import normalize_cameras
+from preprocessing_utils import transform_smpl
 
 device = 'cuda:0'
 
