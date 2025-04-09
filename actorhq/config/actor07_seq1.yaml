@@ -32,4 +32,4 @@ test:
   name: test
 
 output:
-  dir: ../data/actorhq
+  dir: ./data/actorhq

@@ -1,6 +1,6 @@
 dataset:
-  path: ../raw_data/mvhuman
-  path_out: ../data/mvhuman
+  path: ./raw_data/mvhuman
+  path_out: ./data/mvhuman
   subject: '200173'
   gender: 'neutral'
   image_scale_factor: 0.5

@@ -25,4 +25,4 @@ novel_pose:
   name: novel_pose
 
 output:
-  dir: ../data/actorhq
+  dir: ./data/actorhq

@@ -37,7 +37,6 @@ def process(args):
     cameras_out = []
     scales = []
     joints = []
-    w2ls = []
 
     T_hip = smpl_model.get_T_hip(betas=torch.tensor(mean_shape)[None].float().to(device)).squeeze().cpu().numpy()
     tpose_output = smpl_model(betas=torch.tensor(mean_shape)[None].float().to(device),
@@ -75,15 +74,15 @@ def process(args):
         'frames_name': np.array(frames_name, dtype=np.dtype('S32')),
         'images': np.array(images),
         'masks': np.array(masks),
-        'masks_samp': np.array(masks_samp),
-        'cameras': np.array(cameras_out),
-        'scales': np.array(scales),
+        'masks_samp': np.array(masks_samp), # not used
+        'cameras': np.array(cameras_out), # camera intrinsic and extrinsic parameters
+        'scales': np.array(scales), # the scaling caused by camera normalization
 
-        'mean_shape': np.array(mean_shape),
-        'normalize_trans': np.array(normalize_trans),
-        'poses': np.array(poses),
-        'joints': np.array(joints),
-        'rest_pose': np.array(tpose_joints).astype(np.float32),
+        'mean_shape': np.array(mean_shape), # the shape parameter of smpl
+        'normalize_trans': np.array(normalize_trans), # the global translation
+        'poses': np.array(poses), # the smpl pose parameters
+        'joints': np.array(joints), # the location of joints 
+        'rest_pose': np.array(tpose_joints).astype(np.float32), # the location of joints under T-pose
     }
 
     utils.write_to_h5py(target_file, data)
