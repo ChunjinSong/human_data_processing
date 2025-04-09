@@ -5,7 +5,7 @@ import numpy as np
 import argparse
 import glob
 from segment_anything import SamPredictor, sam_model_registry
-sam_checkpoint = "../model/sam_vit_h_4b8939.pth"
+sam_checkpoint = "./model/sam_vit_h_4b8939.pth"
 model_type = "vit_h"
 device = "cuda"
 sam = sam_model_registry[model_type](checkpoint=sam_checkpoint)
@@ -15,7 +15,7 @@ predictor = SamPredictor(sam)
 def main(args):
 
     try:
-        DIR = '../data'
+        DIR = './data'
         # Read frames on directory
         img_dir = f'{DIR}/{args.seq}/image'
         msk_dir = f'{DIR}/{args.seq}/mask'

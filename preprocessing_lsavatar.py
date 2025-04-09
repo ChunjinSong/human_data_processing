@@ -10,7 +10,10 @@ from smplx.body_models import SMPL
 device = 'cuda:0'
 
 def process(args):
-    smpl_model = SMPL('../model/smpl_model_data', gender=args.gender).to(device)
+    args.source_dir = f'./data/{args.seq}'
+    args.target_file = f'./data/data_for_lsavatar/{args.seq}.h5'
+
+    smpl_model = SMPL('./model/smpl_model_data', gender=args.gender).to(device)
 
     source_dir = args.source_dir
     target_file = args.target_file
@@ -20,8 +23,8 @@ def process(args):
     img_dir = f'{source_dir}/image'
     msk_dir = f'{source_dir}/mask'
 
-    imgPaths = sorted(glob.glob(f'{img_dir}/*.jpg'))
-    maskPaths = sorted(glob.glob(f'{msk_dir}/*.png'))
+    imgPaths = sorted(glob.glob(f'{img_dir}/*.*'))
+    maskPaths = sorted(glob.glob(f'{msk_dir}/*.*'))
 
     cameras = np.load(f'{source_dir}/cameras_normalize.npz')
     mean_shape = np.load(f'{source_dir}/mean_shape.npy')
@@ -90,12 +93,12 @@ def process(args):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Processing data for lsavatar on a sequence")
     parser.add_argument('--seq', type=str, default='sequence_name',help="Process a directory of images. Read all standard formats (jpg, png, bmp, etc.).")
-    parser.add_argument('--source_dir', type=str, default='../data/sequence_name_training')
-    parser.add_argument('--target_file', type=str, default='../data/data_for_lsavatar/sequence_name_training.h5')
+    parser.add_argument('--source_dir', type=str, default='./data/sequence_name_training')
+    parser.add_argument('--target_file', type=str, default='./data/data_for_lsavatar/sequence_name_training.h5')
     parser.add_argument('--gender', type=str, default='neutral')
 
     args = parser.parse_args()
-    args.source_dir = f'../data/{args.seq}'
-    args.target_file = f'../data/data_for_lsavatar/{args.seq}.h5'
+    args.source_dir = f'./data/{args.seq}'
+    args.target_file = f'./data/data_for_lsavatar/{args.seq}.h5'
     process(args)
 

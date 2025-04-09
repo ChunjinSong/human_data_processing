@@ -10,7 +10,9 @@ from smplx.body_models import SMPL
 device = 'cuda:0'
 
 def main(args):
-    smpl_model = SMPL('../model/smpl_model_data', gender=args.gender).to(device)
+    args.source_dir = f'./data/{args.seq}'
+    args.target_file = f'./data/data_for_humannerf/{args.seq}.h5'
+    smpl_model = SMPL('./model/smpl_model_data', gender=args.gender).to(device)
 
     source_dir = args.source_dir
     target_file = args.target_file

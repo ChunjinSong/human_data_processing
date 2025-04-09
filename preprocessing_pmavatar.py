@@ -17,7 +17,9 @@ to_npc_cam = np.array([
 
 
 def main(args):
-    smpl_model = SMPL('../model/smpl_model_data', gender=args.gender).to(device)
+    args.source_file = f'./data/data_for_humannerf/{args.seq}.h5'
+    args.target_file = f'./data/data_for_npc/{args.seq}.h5'
+
     source_file = args.source_file
     target_file = args.target_file
 
@@ -113,6 +115,6 @@ if __name__ == '__main__':
     parser.add_argument('--gender', type=str, default='neutral')
 
     args = parser.parse_args()
-    args.source_dir = f'../data/data_for_humannerf/{args.seq}.h5'
+    args.source_file = f'../data/data_for_humannerf/{args.seq}.h5'
     args.target_file = f'../data/data_for_npc/{args.seq}.h5'
     main(args)

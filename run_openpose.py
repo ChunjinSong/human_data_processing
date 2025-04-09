@@ -28,7 +28,7 @@ def get_bbox_center(_img, mask):
 def main(args):
     body_estimation = torch_openpose.body_25('body_25')
 
-    DIR = '../raw_data'
+    DIR = './raw_data'
     # Read frames on directory
     img_dir = f'{DIR}/{args.seq}/frames'
     msk_dir = f'{DIR}/{args.seq}/init_mask'

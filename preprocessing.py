@@ -16,14 +16,14 @@ def main(args):
     device = torch.device("cuda:0")
     seq = args.seq
     gender = args.gender
-    DIR = '../raw_data'
+    DIR = './raw_data'
     img_dir = f'{DIR}/{seq}/frames'   
     romp_file_dir = f'{DIR}/{seq}/ROMP'
     img_paths = sorted([f for f_ in [glob.glob(e) for e in (f'{img_dir}/*.png', f'{img_dir}/*.jpg')] for f in f_])
     romp_file_paths = sorted(glob.glob(f"{romp_file_dir}/*.npz"))
 
     from smplx import SMPL
-    smpl_model = SMPL('../model/smpl_model_data', gender=gender).to(device)
+    smpl_model = SMPL('./model/smpl_model_data', gender=gender).to(device)
     
     input_img = cv2.imread(img_paths[0])
     if args.source == 'custom':
@@ -105,7 +105,7 @@ def main(args):
         refined_smpl_paths = sorted(glob.glob(f"{refined_smpl_dir}/*.pkl"))
         refined_smpl_mask_paths = sorted(glob.glob(f"{refined_smpl_mask_dir}/*.png"))
 
-        save_dir = f'../data/{seq}'
+        save_dir = f'./data/{seq}'
         if not os.path.exists(os.path.join(save_dir, 'image')):
             os.makedirs(os.path.join(save_dir, 'image'))
         if not os.path.exists(os.path.join(save_dir, 'mask')):
