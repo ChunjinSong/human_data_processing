@@ -1,0 +1,5 @@
+.idea/
+model/
+raw_data/
+data/
+*.pyc
